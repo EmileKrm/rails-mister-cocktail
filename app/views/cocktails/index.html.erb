@@ -1,5 +1,34 @@
-<h1>Here are all the Cocktails</h1>
-<% @cocktails.each do |cocktail| %>
-  <li><%= cocktail.name %></li>
-  <span><%= link_to "view",  cocktail_path(cocktail) %></span>
-<% end %>
+
+<div class="container">
+
+  <div class="title">
+    <h1>Here are all the Cocktails</h1>
+    <h2><%= link_to "Add a new cocktail", new_cocktail_path  %></h2>
+  </div>
+
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <% if cocktail.photo.nil? %>
+          <div class="card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                  url('http://cdn.liquor.com/wp-content/uploads/2015/03/hub_classic_cocktail_margarita.jpg')">
+        <% else %>
+          <div class="card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                  url('<%= cl_image_path cocktail.photo.path, width: 400, height: 300, crop: :fill %>')">
+          <% end %>
+          <div class="card-name">
+            <%= cocktail.name %>
+          </div>
+          <div class="card-controller">
+            <%= link_to cocktail_path(cocktail) do %>
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
