@@ -6,7 +6,15 @@
   position: relative;
   padding: 10px;
   margin-bottom: 20px;
-  border-radius: 10px
+  border-radius: 10px;
+  &:hover {
+    opacity: 0.8;
+    .card-name {
+      color:#F06300;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
 }
 
 .card-upload {
