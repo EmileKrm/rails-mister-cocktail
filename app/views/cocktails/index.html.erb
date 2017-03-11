@@ -1,9 +1,9 @@
 
 <div class="container">
 
-  <div class="title">
+  <div class="title text-center">
     <h1>Here are all the Cocktails</h1>
-    <h2><%= link_to "Add a new cocktail", new_cocktail_path  %></h2>
+    <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-warning" %>
   </div>
 
   <div class="row">
@@ -18,20 +18,32 @@
             style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
                   url('<%= cl_image_path cocktail.photo.path, width: 400, height: 300, crop: :fill %>')">
           <% end %>
-          <div class="card-name">
-            <%= cocktail.name %>
+            <div class="card-name">
+              <%= cocktail.name %>
+            </div>
+            <div class="card-controller">
+              <%= link_to cocktail_path(cocktail) do %>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to edit_cocktail_path(cocktail) do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
+            </div>
           </div>
-          <div class="card-controller">
-            <%= link_to cocktail_path(cocktail) do %>
-              <i class="fa fa-eye" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to edit_cocktail_path(cocktail) do %>
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+      </div>
+    <% end %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-upload"
+              style="opacity: 1; background-color: rgb(225, 245, 196); background-image: linear-gradient(to left, rgb(237, 229, 116), rgb(225, 245, 196));">
+          <div class="card-upload-controller">
+            <%= link_to new_cocktail_path do  %>
+              <i class="fa fa-plus-square-o" aria-hidden="true"></i>
             <% end %>
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
 </div>
+
+
 

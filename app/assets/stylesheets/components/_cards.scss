@@ -9,6 +9,26 @@
   border-radius: 10px
 }
 
+.card-upload {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border-style: dashed;
+  border-width: 2.5px;
+  border-color: #8D9E58;
+}
+
+.card-upload-controller {
+  font-size: 50px;
+  font-color:#820008
+}
 .card-name {
   position: absolute;
   top: 10px;
